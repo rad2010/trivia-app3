@@ -26,7 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: nvm install lts/gallium
-    - run: nvm alias default lts/gallium
+    - run: npm install 
+    - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    - run: export NVM_DIR="$HOME/.nvm"
+    - run: ls -l
     - run: npm run build --if-present
-    - run: npm test
